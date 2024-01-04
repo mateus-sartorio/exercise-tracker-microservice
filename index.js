@@ -97,52 +97,6 @@ app.post("/api/users/:_id/exercises", async (request, response) => {
 /*====================================================================
                             LOGS
 ====================================================================*/
-// app.get("/api/users/:_id/logs", async (request, response) => {
-//   const _id = request.params._id;
-
-//   const { from, to, limit } = request.query;
-
-//   const dateFormatRegex = /^\d{4}-\d{2}-\d{2}$/;
-
-//   let fromDate = null;
-//   if (from && dateFormatRegex.test(from)) {
-//     const [year, month, day] = from.split("-");
-//     fromDate = new Date(year, month - 1, day);
-//   }
-
-//   let toDate = null;
-//   if (to && dateFormatRegex.test(to)) {
-//     const [year, month, day] = to.split("-");
-//     toDate = new Date(year, month - 1, day);
-//   }
-
-//   const data = await UserModel.findOne({ _id });
-
-//   const exercises = data.exercises;
-
-//   let filteredExercises;
-
-//   if (exercises) {
-//     filteredExercises = [...exercises];
-//   } else {
-//     filteredExercises = [];
-//   }
-
-//   if (fromDate) {
-//     filteredExercises = filteredExercises.filter((e) => e.date >= fromDate);
-//   }
-
-//   if (toDate) {
-//     filteredExercises = filteredExercises.filter((e) => e.date <= toDate);
-//   }
-
-//   if (limit) {
-//     filteredExercises = filteredExercises.slice(0, Number(limit));
-//   }
-
-//   response.json({ username: data.username, count: filteredExercises.length });
-// });
-
 app.get("/api/users/:_id/logs", async (request, response) => {
   const _id = request.params._id;
   const { from, to, limit } = request.query;
